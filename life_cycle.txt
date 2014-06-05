@@ -1,0 +1,8 @@
+When the server is started, root context and servlet context are configured (not bootstrap)
+
+When the app start running, LoggingFilter is invoked, then IndexController is invoked (because the request mapping is "/") and return the redirect to URL /ticket/login. Then AuthenticationFilter is invoked and send redirect to /CustomerSupportSpring/login
+
+The AuthenticationController is invoked because it has a method match with RequestMapping /login (the GET one) 
+User will be prompt with login form.
+After fill in the login form and click submit, the login with requestmapping value=login and method=POST method in AuthenticationController is invoked.
+If the user existed in the database, the user will be prompted with a list of tickets as requested.
